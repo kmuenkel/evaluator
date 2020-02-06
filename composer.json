@@ -1,0 +1,41 @@
+{
+    "name": "kmuenkel/evaluator",
+    "description": "Check a given data-set against a recursive rule-set",
+    "time": "2020-02-04 18:30:00",
+    "authors": [
+        {
+            "name": "Kevin Muenkel",
+            "email": "kevin_tm@yahoo.com"
+        }
+    ],
+    "keywords": [
+        "string",
+        "dot-notation",
+        "array",
+        "rule-engine",
+        "search"
+    ],
+    "type": "project",
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Evaluator\\Tests\\": "tests/"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Evaluator\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "license": "MIT",
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
