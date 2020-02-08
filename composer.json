@@ -1,5 +1,5 @@
 {
-    "name": "kmuenkel/evaluator",
+    "name": "kmuenkel/rule-evaluator",
     "description": "Check a given data-set against a recursive rule-set",
     "time": "2020-02-04 18:30:00",
     "authors": [
