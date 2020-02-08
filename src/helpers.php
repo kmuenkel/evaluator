@@ -57,7 +57,7 @@ if (!function_exists('array_match_recursive')) {
      */
     function array_match_recursive(array $items, $search)
     {
-        $items = (array_depth($items) == 1) ? $items : array_dot($items);
+        $items = array_depth($items) ? array_dot($items) : $items;
         $search .= '*';
         $results = [];
 

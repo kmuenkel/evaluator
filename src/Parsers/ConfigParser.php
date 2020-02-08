@@ -125,28 +125,30 @@ class ConfigParser implements Parser
 
             case 'all':
                 $success = true;
-                if (!$value2) {
-                    foreach ($value1 as $rule) {
+                if (!$value1 xor !$value2) {
+                    $rules = $value1 ?: $value2;
+                    foreach ($rules as $rule) {
                         if (!($success &= $this->evaluate($rule))) {
                             break;
                         }
                     }
+                } else {
+                    $success |= count(array_intersect($value1, $value2)) == count($value1);
                 }
-
-                $success |= count(array_intersect($value1, $value2)) == count($value1);
 
                 break;
             case 'any':
                 $success = false;
-                if (!$value2) {
-                    foreach ($value1 as $rule) {
+                if (!$value1 xor !$value2) {
+                    $rules = $value1 ?: $value2;
+                    foreach ($rules as $rule) {
                         if ($success |= $this->evaluate($rule)) {
                             break;
                         }
                     }
+                } else {
+                    $success |= (bool)count(array_intersect($value1, $value2));
                 }
-
-                $success |= (bool)count(array_intersect($value1, $value2));
 
                 break;
             case 'none':
@@ -174,8 +176,8 @@ class ConfigParser implements Parser
             $this->failures[$ruleId] = [
                 'rule' => $rule,
                 'values' => [
-                    'value1' => $value1,
-                    'value2' => $value2
+                    $value1,
+                    $value2
                 ]
             ];
         }

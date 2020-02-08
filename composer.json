@@ -15,7 +15,7 @@
         "rule-engine",
         "search"
     ],
-    "type": "project",
+    "type": "library",
     "require": {
         "php": ">=7.0.0"
     },
