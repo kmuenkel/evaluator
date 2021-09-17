@@ -1,4 +1,4 @@
-# evaluator
+# Rule Evaluator
 Check a given data-set against a recursive rule-set
 
 You begin with a config array that may or may not originate from a database. There are only three dataponts to each "rule".
@@ -39,7 +39,7 @@ The comparison operators, keyed as `comparator`, may be any of the following:
   - **Or** If only one array is present, it must reference nested rules that all resolve to `false` (or be empty)
 - 'passes': Value 1 and the entire dataset being evaluated get passed to a closure defgined by value 2, the output of which must resolve to `true`. This allows for custom rules behavior to be added.
 
-###Sample Usage###
+### Sample Usage ###
 
 `ruleConfig.php`
 ```php
@@ -84,7 +84,7 @@ use Evaluator\Parsers\ConfigParser;
 
 $rules = require_once 'ruleConfig.php';
 $data = json_decode(file_get_contents("data.json"), true);
-$dotNotation = dotNotation($data); //Conversion function not included (yet)
+$data = dotNotation($data); //Conversion function not included (yet)
 
 $result = (new ConfigParser($data, $rules))->evaluate('isMe'); // true
 ```
