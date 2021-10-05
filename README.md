@@ -84,7 +84,7 @@ use Evaluator\Parsers\ConfigParser;
 
 $rules = require_once 'ruleConfig.php';
 $data = json_decode(file_get_contents("data.json"), true);
-$data = dotNotation($data); //Conversion function not included (yet)
+$data = array_dot($data);
 
-$result = (new ConfigParser($data, $rules))->evaluate('isMe'); // true
+$ result = (new ConfigParser($data, $rules))->evaluate('isMe'); // true
 ```
